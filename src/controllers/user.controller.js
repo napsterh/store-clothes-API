@@ -44,8 +44,11 @@ export const signup = async (req, res) => {
     }
 };
 
-export const renderSigninForm = (req, res) => {
-    res.send('/users/signin')
+export const renderSigninForm = async (req, res) => {
+    const users = await User.find()
+    res.status(200).json({
+        users,
+    });
 };
 
 export const signin = passport.authenticate('local', {
