@@ -34,12 +34,12 @@ export const signup = async (req, res) => {
         }else {
             const newUser = new User({ name, email, password });
             newUser.password = await newUser.encryptPass(password);
-            const usuario = await newUser.save();
+            const users = await newUser.save();
             console.log('usuario registrado correctamente');
-            res.status(200).json({
-                usuario,
-            });
             //res.redirect('/users/signin');
+            res.status(200).json({
+                users,
+            });
         }
     }
 };
