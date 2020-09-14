@@ -11,14 +11,14 @@ passport.use(new LocalStrategy({
     //Confirmar si coincide email
     const user = await User.findOne({ email });
     if(!user) {
-        return done(null, false, { message: 'No encontrado' });
+        return done(null, false, { message: 'Correo no encontrado' });
     }else {
     //Validar contraseña
     const match =  await user.matchPassword(password);
         if(match){
             return done(null, user);
         }else {
-            return done(null, false, { message : 'Contraseña incorrecta' });
+            return done(null, false, { message : 'Contraseña incorrecta, vuelva a intentarlo' });
         }
     }
 }));
