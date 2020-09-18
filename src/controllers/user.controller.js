@@ -1,4 +1,10 @@
-import User from '../models/user.model';
+const usersCtrl = {};
+
+//import User from '../models/user.model';
+
+    require('../models/user.model');
+    const User = require('mongoose').model('User');
+
 
 const passport  = require('passport');
 
@@ -62,3 +68,10 @@ export const logout = (req, res) => {
 };
 
 
+/*
+usersCtrl.logout = (req, res) => {
+  req.logout();
+  req.flash("success_msg", "You are logged out now.");
+  res.redirect("/users/signin");
+};
+*/

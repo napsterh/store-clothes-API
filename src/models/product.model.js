@@ -1,21 +1,23 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from 'mongoose';
 
-
-const productSchema = new Schema ({
-    name: {
+const productSchema = new Schema({
+    nombre: {
         type: String,
         required: true
     },
-    description: String,
-    previewImageURL: String,
-    category: String,
-    price: {
+    descripcion: String,
+    imagenURL: String,
+    imagenMarcaURL: String,
+    categoria: String,
+    precio: String,
+    descuento: {
         type: Number,
         default: 0
     },
-    quantity: {
-        type: Number,
-        default: 1
+    sku: String,
+    cantDisponible: {
+        type: String,
+        default: 0
     }
 }, {
     versionKey: false,
