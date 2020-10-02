@@ -9,6 +9,9 @@ const productSchema = new Schema({
     imagenURL: String,
     imagenMarcaURL: String,
     categoria: String,
+    subcategoria: String,
+    tipoDescuento: String,
+    categoriaExtra: String,
     precio: String,
     descuento: {
         type: Number,
@@ -18,7 +21,12 @@ const productSchema = new Schema({
     cantDisponible: {
         type: String,
         default: 0
-    }
+    },
+    liked: {
+        type: Boolean,
+        default: false
+    },
+    fechaFinOferta: String
 }, {
     versionKey: false,
     timestamps: true
